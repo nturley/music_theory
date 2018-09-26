@@ -96,6 +96,9 @@ function setKey(a) {
         el.innerHTML = Number(i) + 1;
     }
 
+    var el = document.getElementById("keyRect");
+    keyRect.setAttribute('x', a.getAttribute('x'));
+    keyRect.setAttribute('y', a.getAttribute('y'));
 }
 
 function getAccidentals() {
@@ -139,17 +142,17 @@ function getAccidentals() {
     <text x="200" y="473" >G</text>
 
     <text x="300" y="175" id="scale0">1</text>
-    <text x="362" y="191" id="scale1">2</text>
-    <text x="408" y="237" id="scale2">3</text>
-    <text x="425" y="300" id="scale3">4</text>
-    <text x="408" y="362" id="scale4">5</text>
-    <text x="362" y="408" id="scale5">6</text>
-    <text x="300" y="425" id="scale6">7</text>
-    <text x="237" y="191" id="scale11">12</text>
-    <text x="191" y="237" id="scale10">11</text>
-    <text x="175" y="300" id="scale9">10</text>
-    <text x="191" y="362" id="scale8">9</text>
-    <text x="237" y="408" id="scale7">8</text>
+    <text x="362" y="191" id="scale1"></text>
+    <text x="408" y="237" id="scale2">2</text>
+    <text x="425" y="300" id="scale3"></text>
+    <text x="408" y="362" id="scale4">3</text>
+    <text x="362" y="408" id="scale5">4</text>
+    <text x="300" y="425" id="scale6"></text>
+    <text x="237" y="191" id="scale11">7</text>
+    <text x="191" y="237" id="scale10"></text>
+    <text x="175" y="300" id="scale9">6</text>
+    <text x="191" y="362" id="scale8"></text>
+    <text x="237" y="408" id="scale7">5</text>
  
 </svg>
 </div>
@@ -177,10 +180,13 @@ function getAccidentals() {
         font-family: Tangerine;
         text-anchor: middle;
         alignment-baseline: middle;
+        cursor: default;
     }
     
     </style>
     <circle class="outline" r="160" cx="300" cy="300"/>
+    <g transform="translate(-40,-30)">
+    <rect id="keyRect" class="outline" x="300" y="100" width="90" height="50" rx="10" ry="10"/></g>
     <text class="key" id="CMajor" x="300" y="100" onmouseover="setKey(this)">C</text>
     <text class="key" id="GMajor" x="400" y="127" onmouseover="setKey(this)">G</text>
     <text class="key" id="DMajor" x="473" y="200" onmouseover="setKey(this)">D</text>
