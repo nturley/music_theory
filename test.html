@@ -1,0 +1,72 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <style>
+    text {
+        font-weight: bold;
+        font-size:50px;
+        text-anchor: middle;
+        alignment-baseline: middle;
+        cursor: default;
+    }
+    .outline {
+    fill: None;
+    stroke: black;
+    stroke-width: 2;
+}
+</style>
+</head>
+    <body>
+        <svg version="1.1" viewBox="50 70 600 600" preserveAspectRatio="xMinYMin meet" width="300" height="300">
+            <circle class="outline" r="160" cx="300" cy="300"/>
+            <text x="300" y="100" >C</text>
+            <text x="400" y="127" class="scalesharp">C</text>
+            <text x="473" y="200" >D</text>
+            <text x="500" y="300" class="scalesharp">D</text>
+            <text x="473" y="400" >E</text>
+            <text x="400" y="473" >F</text>
+            <text x="300" y="500" class="scalesharp">F</text>
+            <text x="200" y="127" >B</text>
+            <text x="127" y="200" class="scalesharp">A</text>
+            <text x="100" y="300" >A</text>
+            <text x="127" y="400" class="scalesharp">G</text>
+            <text x="200" y="473" >G</text>
+        
+            <text x="300" y="175" id="scale1" class="scaleNum">1</text>
+            <text x="408" y="237" id="scale2" class="scaleNum">2</text>
+            <text x="408" y="362" id="scale3" class="scaleNum">3</text>
+            <text x="362" y="408" id="scale4" class="scaleNum">4</text>
+            <text x="237" y="408" id="scale7" class="scaleNum">5</text>
+            <text x="175" y="300" id="scale6" class="scaleNum">6</text>
+            <text x="237" y="191" id="scale5" class="scaleNum">7</text>
+        </svg>
+    </body>
+    <script>
+            var theData = [0,2,4,5,7,9,11]
+            
+            d3.select("svg")
+                .selectAll(".scaleNum")
+                .data(theData)
+                .attr('x',(d)=>Math.sin(Math.PI/6*d)*125+300)
+                .attr('y',(d)=>-Math.cos(Math.PI/6*d)*125+300);
+            d3.select("svg")
+                .on("click", () => {
+                    for (var i in theData) {
+                        theData[i] += 5;
+                    }
+                    d3.select("svg")
+                .selectAll(".scaleNum")
+                .data(theData)
+                .transition()
+                .attr('x',(d)=>Math.sin(Math.PI/6*d)*125+300)
+                .attr('y',(d)=>-Math.cos(Math.PI/6*d)*125+300);
+            
+
+            });
+    
+            
+            
+        </script>
+</html>
