@@ -174,23 +174,17 @@
                 acc.style.visibility = "hidden";
             }
         }
-        var scalesharps = document.getElementsByClassName("scaleSharp");
-        var scaleflats = document.getElementsByClassName("scaleFlat");
+
+
+        var scalesharps = d3.selectAll('.scaleSharp');
+        var scaleflats = d3.selectAll('.scaleFlat');
 
         if (sharpkeys.indexOf(a.id) > -1) {
-            for (var s of scalesharps) {
-                s.style.visibility = "visible";
-            }
-            for (var f of scaleflats) {
-                f.style.visibility = "hidden";
-            }
+            scalesharps.style('visibility','visible');
+            scaleflats.style('visibility','hidden');
         } else {
-            for (var s of scalesharps) {
-                s.style.visibility = "hidden";
-            }
-            for (var f of scaleflats) {
-                f.style.visibility = "visible";
-            }
+            scalesharps.style('visibility','hidden');
+            scaleflats.style('visibility','visible');
         }
 
         scaleNums.each(function(d) {
